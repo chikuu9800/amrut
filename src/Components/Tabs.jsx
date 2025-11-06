@@ -89,7 +89,7 @@ export default function YojanaSection() {
   return (
     <div className="max-w-6xl mx-auto py-10 px-6 mt-10 mb-20">
       {/* Centered Title */}
-      <h2 className="text-3xl font-bold text-center mb-6 border-b-4 border-orange-400 inline-block mx-auto pb-2">
+      <h2 className="text-3xl font-bold text-center mb-6 border-b-4 border-orange-400 inline-block mx-auto pb-2 " style={{ fontFamily: "baloo, sans-serif" }}>
         योजना
       </h2>
 

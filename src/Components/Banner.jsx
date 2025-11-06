@@ -1,7 +1,7 @@
 export default function AmrutBanner() {
     return (
       <section
-        className="relative w-screen h-[100vh] bg-cover bg-center flex items-center justify-center"
+        className="relative w-screen  h-[60vh] bg-cover bg-center flex items-center justify-center"
         style={{
           backgroundImage: `url('/images/1000_F_581566986_vjGXzCbNhpH5yvsNoN0dhZoG9mcVOnBK.jpg')`,
         }}

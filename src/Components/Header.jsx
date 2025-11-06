@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Menu, X, ChevronDown, Search
@@ -66,33 +66,12 @@ const schemes = [
 export default function Header() {
     const [openMenu, setOpenMenu] = useState(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [isSubHeaderHidden, setIsSubHeaderHidden] = useState(false);
     const [activeSubmenu, setActiveSubmenu] = useState({
         menuIndex: null,
         submenuIndex: null,
         nestedIndex: null
     });
     const [searchQuery, setSearchQuery] = useState('');
-    const [hasScrolledPast80vh, setHasScrolledPast80vh] = useState(false);
-
-    useEffect(() => {
-        let lastScrollTop = 0;
-
-        const handleScroll = () => {
-            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-            const windowHeight = window.innerHeight;
-
-            // Check if scrolled past 80vh
-            setHasScrolledPast80vh(currentScroll > windowHeight * 0.8);
-
-            // Handle sub-header visibility
-            setIsSubHeaderHidden(currentScroll > lastScrollTop && currentScroll > 100);
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     function isSubMenuItem(item) {
         return typeof item === 'object' && 'title' in item && 'submenu' in item;
@@ -132,19 +111,13 @@ export default function Header() {
         }));
     };
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-        // Implement search functionality here
-        console.log('Searching for:', searchQuery);
-    };
-
     const renderMobileMenu = () => (
         <div className="lg:hidden">
             <div className="flex items-center justify-between px-4 py-3">
-                <span className="text-white  text-base">मेनू</span>
+                <span className="text-[#ff671f]  text-base">मेनू</span>
                 <button
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="text-white p-2 hover:bg-white/10 rounded-md transition-colors"
+                    className="text-[#ff671f] p-2 hover:bg-white/10 rounded-md transition-colors"
                     aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
                 >
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -370,8 +343,7 @@ export default function Header() {
             }
         },
         exit: {
-            opacity: 0,
-            y: -8,
+            opacity: 0, y: -8,
             transition: {
                 duration: 0.2,
                 ease: [0.4, 0, 1, 1]
@@ -380,25 +352,21 @@ export default function Header() {
     };
 
     return (
-        <div className="relative">
-            {/* Sub Header */}
-            <div 
-                className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-500 ease-in-out ${
-                    isSubHeaderHidden ? 'hidden' : 'translate-y-0 opacity-100'
-                }`}
-            >
+        <div className="bg-white">
+            {/* Sub Header - Made static */}
+            <div className="bg-white z-50">
                 <div className="max-w-7xl mx-auto px-4 py-3">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         {/* Logo Section */}
                         <div className="flex items-center gap-3 justify-center md:justify-start">
                             <div className="flex items-center justify-center shadow-lg">
-                                <span className="text-white font-bold text-xl md:text-3xl font-playfair">AMRUT</span>
+                                <h1 className="text-[#ff671f] font-bold text-xl md:text-3xl font-playfair">AMRUT</h1>
                             </div>
                             <div className='text-center md:text-left'>
-                                <h2 className="text-sm md:text-lg font-bold text-orange-600" style={{ fontFamily: 'baloo, sans-serif ' }}>
-                                महाराष्ट्र संशोधन, उन्नती व प्रशिक्षण प्रवोधिनी (अमृत)
+                                <h2 className="text-sm md:text-lg font-bold text-orange-600" style={{ fontFamily: 'baloo, sans-serif' }}>
+                                    महाराष्ट्र संशोधन, उन्नती व प्रशिक्षण प्रवोधिनी (अमृत)
                                 </h2>
-                                <p className="text-[10px] md:text-xs text-white font-playfair">ACADEMY OF MAHARASHTRA RESEARCH, UPLIFTMENT AND TRAINING (AMRUT)</p>
+                                <p className="text-[10px] md:text-xs text-black font-playfair">ACADEMY OF MAHARASHTRA RESEARCH, UPLIFTMENT AND TRAINING (AMRUT)</p>
                             </div>
                         </div>
 
@@ -420,10 +388,10 @@ export default function Header() {
 
                                     {/* Name and Title */}
                                     <div className="text-center">
-                                        <p className="text-[10px] md:text-sm font-semibold text-white whitespace-nowrap" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                                        <p className="text-[10px] md:text-sm font-semibold text-[#ff671f] whitespace-nowrap" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                             {member.name}
                                         </p>
-                                        <p className="text-[8px] md:text-xs text-orange-600 font-medium">
+                                        <p className="text-[8px] md:text-xs text-[600] text-black font-medium">
                                             {member.title}
                                         </p>
                                     </div>
@@ -434,19 +402,13 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Main Navigation */}
+            {/* Main Navigation - Made static */}
             <nav 
-                className={`fixed ${
-                    isSubHeaderHidden 
-                        ? 'top-0' 
-                        : 'top-[180px] md:top-[140px]'
-                } left-0 right-0 z-40 transition-all duration-500 ease-in-out ${
-                    hasScrolledPast80vh ? 'bg-white' : 'bg-transparent'
-                }`}
+                className="bg-white z-40 border-b border-orange-100"
                 style={{ fontFamily: 'poppins, serif' }}
             >
-                <div className={`${hasScrolledPast80vh ? 'bg-white' : 'bg-transparent'} transition-colors duration-500`}>
-                    <div className="max-w-8xl text-sm mx-auto flex justify-between items-center">
+                <div className="bg-white">
+                    <div className="max-w-12xl text-sm mx-auto flex justify-between items-center">
                         {/* Desktop Menu */}
                         <ul className="hidden lg:flex flex-wrap">
                             {menuStructure.map((menu, idx) => (
@@ -459,17 +421,14 @@ export default function Header() {
                                     {menu.link && !menu.link.startsWith('http') ? (
                                         <Link
                                             to={menu.link}
-                                            className={`flex items-center  gap-1 px-4 py-3 transition-colors text-base ${hasScrolledPast80vh
-                                                    ? 'text-orange-600 hover:bg-orange-50'
-                                                    : 'text-white hover:bg-white/10'
-                                                }`}
+                                            className="flex items-center gap-1 px-4 py-3 transition-colors text-base text-[#ff671f] hover:bg-orange-50"
                                         >
                                             {menu.name}
                                             {menu.submenus && (
                                                 <motion.span
                                                     animate={{ rotate: openMenu === idx ? 180 : 0 }}
                                                     transition={{ duration: 0.2 }}
-                                                    className={hasScrolledPast80vh ? 'text-orange-600' : 'text-white'}
+                                                    className="text-[#ff671f]"
                                                 >
                                                     <ChevronDown size={16} />
                                                 </motion.span>
@@ -478,10 +437,7 @@ export default function Header() {
                                     ) : (
                                         <a
                                             href={menu.link}
-                                            className={`flex items-center gap-1 px-4 py-3 transition-colors text-base ${hasScrolledPast80vh
-                                                    ? 'text-orange-600 hover:bg-orange-50'
-                                                    : 'text-white hover:bg-white/10'
-                                                }`}
+                                            className="flex items-center gap-1 px-4 py-3 transition-colors text-base text-[#ff671f] hover:bg-orange-50"
                                             target={menu.link?.startsWith('http') ? "_blank" : undefined}
                                             rel={menu.link?.startsWith('http') ? "noopener noreferrer" : undefined}
                                         >
@@ -490,7 +446,7 @@ export default function Header() {
                                                 <motion.span
                                                     animate={{ rotate: openMenu === idx ? 180 : 0 }}
                                                     transition={{ duration: 0.2 }}
-                                                    className={hasScrolledPast80vh ? 'text-orange-600' : 'text-white'}
+                                                    className="text-[#ff671f]"
                                                 >
                                                     <ChevronDown size={16} />
                                                 </motion.span>
@@ -498,7 +454,7 @@ export default function Header() {
                                         </a>
                                     )}
 
-                                    {/* Dropdown wrapper with position relative */}
+                                    {/* Dropdown wrapper */}
                                     <div className="absolute left-0 top-full">
                                         {/* Dropdown (1st Level) */}
                                         <AnimatePresence>
@@ -524,20 +480,20 @@ export default function Header() {
                                                                 {link ? (
                                                                     <Link
                                                                         to={link}
-                                                                        className="block px-5 py-3 text-white hover:bg-white/10 transition-colors flex justify-between items-center break-words whitespace-normal border-b border-white/20 text-sm"
+                                                                        className="block px-5 py-3 text-[#ff671f] hover:bg-white/10 transition-colors flex justify-between items-center break-words whitespace-normal border-b border-white/20 text-sm"
                                                                     >
                                                                         <span className="pr-2">{displayText}</span>
                                                                         {isNested && submenu.submenu && (
-                                                                            <ChevronDown size={16} className="transform -rotate-90 flex-shrink-0 text-white" />
+                                                                            <ChevronDown size={16} className="transform -rotate-90 flex-shrink-0 text-[#ff671f]" />
                                                                         )}
                                                                     </Link>
                                                                 ) : (
                                                                     <div
-                                                                        className="block px-5 py-3 text-white hover:bg-white/10 transition-colors flex justify-between items-center break-words whitespace-normal border-b border-white/20 text-sm cursor-pointer"
+                                                                        className="block px-5 py-3 text-[#ff671f] hover:bg-white/10 transition-colors flex justify-between items-center break-words whitespace-normal border-b border-white/20 text-sm cursor-pointer"
                                                                     >
                                                                         <span className="pr-2">{displayText}</span>
                                                                         {isNested && submenu.submenu && (
-                                                                            <ChevronDown size={16} className="transform -rotate-90 flex-shrink-0 text-white" />
+                                                                            <ChevronDown size={16} className="transform -rotate-90 flex-shrink-0 text-[#ff671f]" />
                                                                         )}
                                                                     </div>
                                                                 )}
@@ -561,24 +517,24 @@ export default function Header() {
                                                                                     {nestedLink ? (
                                                                                         <Link
                                                                                             to={nestedLink}
-                                                                                            className="block px-5 py-3 text-white hover:bg-white/10 transition-colors flex justify-between items-center break-words whitespace-normal border-b border-white/20 text-sm"
+                                                                                            className="block px-5 py-3 text-[#ff671f] hover:bg-white/10 transition-colors flex justify-between items-center break-words whitespace-normal border-b border-white/20 text-sm"
                                                                                         >
                                                                                             <span className="pr-2">
                                                                                                 {nestedText}
                                                                                             </span>
                                                                                             {hasSubdetails && (
-                                                                                                <ChevronDown size={16} className="transform -rotate-90 flex-shrink-0 text-white" />
+                                                                                                <ChevronDown size={16} className="transform -rotate-90 flex-shrink-0 text-[#ff671f]" />
                                                                                             )}
                                                                                         </Link>
                                                                                     ) : (
                                                                                         <div
-                                                                                            className="block px-5 py-3 text-white hover:bg-white/10 transition-colors flex justify-between items-center break-words whitespace-normal border-b border-white/20 text-sm cursor-pointer"
+                                                                                            className="block px-5 py-3 text-[#ff671f] hover:bg-white/10 transition-colors flex justify-between items-center break-words whitespace-normal border-b border-white/20 text-sm cursor-pointer"
                                                                                         >
                                                                                             <span className="pr-2">
                                                                                                 {nestedText}
                                                                                             </span>
                                                                                             {hasSubdetails && (
-                                                                                                <ChevronDown size={16} className="transform -rotate-90 flex-shrink-0 text-white" />
+                                                                                                <ChevronDown size={16} className="transform -rotate-90 flex-shrink-0 text-[#ff671f]" />
                                                                                             )}
                                                                                         </div>
                                                                                     )}
@@ -593,7 +549,7 @@ export default function Header() {
                                                                                                 <Link
                                                                                                     key={detailIdx}
                                                                                                     to={detail.link}
-                                                                                                    className="block px-5 py-3 text-white hover:bg-white/10 transition-colors break-words whitespace-normal text-sm border-b border-white/20"
+                                                                                                    className="block px-5 py-3 text-[#ff671f] hover:bg-white/10 transition-colors break-words whitespace-normal text-sm border-b border-white/20"
                                                                                                 >
                                                                                                     {detail.name}
                                                                                                 </Link>
@@ -616,34 +572,9 @@ export default function Header() {
                             ))}
                         </ul>
 
-                        {/* Search Field - Desktop */}
-                        <div className="hidden lg:flex items-center gap-4 px-4">
-                            <form onSubmit={handleSearch} className="flex items-center">
-                                <input
-                                    type="text"
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    placeholder="शोधा..."
-                                    className={`px-3 py-1.5 text-base border rounded-l-md focus:outline-none ${hasScrolledPast80vh
-                                            ? 'border-orange-200 focus:border-orange-300 text-orange-600 placeholder-orange-400 bg-white'
-                                            : 'border-white/20 focus:border-white/40 text-white placeholder-white/60 bg-transparent'
-                                        }`}
-                                />
-                                <button
-                                    type="submit"
-                                    className={`px-3 py-2 rounded-r-md transition-colors ${hasScrolledPast80vh
-                                            ? 'bg-orange-50 text-orange-600 hover:bg-orange-100'
-                                            : 'bg-white/10 text-white hover:bg-white/20'
-                                        }`}
-                                >
-                                    <Search size={16} />
-                                </button>
-                            </form>
-                        </div>
+                        {/* Mobile Menu */}
+                        {renderMobileMenu()}
                     </div>
-
-                    {/* Mobile Menu */}
-                    {renderMobileMenu()}
                 </div>
             </nav>
         </div>
