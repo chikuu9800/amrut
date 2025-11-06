@@ -1,17 +1,16 @@
 {
-    "version": 2,
-    "name": "amrut",
-    "builds": [
-      { "src": "package.json", "use": "@vercel/static-build" }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/index.html"
-      }
-    ],
-    "env": {
-      "NODE_ENV": "production"
+  "version": 2,
+  "name": "amrut",
+  "builds": [
+    { "src": "package.json", "use": "@vercel/static-build" }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
+  ],
+  "env": {
+    "NODE_ENV": "production"
   }
-  
+}
