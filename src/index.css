@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'poppins';
+    src: url('./assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'baloo';
+    src: url('./assets/Fonts/Baloo_2/Baloo2-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'playfair';
+    src: url('./assets/Fonts/PlayfairDisplay-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .font-playfair {
+    font-family: 'playfair', serif;
+  }
+  
+ 
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+
+@layer utilities {
+    .glow-ring {
+      box-shadow: 0 0 15px rgba(255, 165, 0, 0.3);
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+  
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 12px rgba(255,165,0,0.3); }
+      50% { box-shadow: 0 0 25px rgba(255,165,0,0.6); }
+    }
+  }
+  
