@@ -114,7 +114,7 @@ export default function Header() {
     const renderMobileMenu = () => (
         <div className="lg:hidden">
             <div className="flex items-center justify-between px-4 py-3">
-                <span className="text-[#ff671f]  text-base">मेनू</span>
+                <span className="text-[#ff671f] text-base">मेनू</span>
                 <button
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     className="text-[#ff671f] p-2 hover:bg-white/10 rounded-md transition-colors"
