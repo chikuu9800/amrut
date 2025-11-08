@@ -7,11 +7,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Team members data
 const teamMembers = [
-    { name: 'राजेश कुमार', title: 'अध्यक्ष', image: '/images/HeaderSlider/1.png' },
-    { name: 'संजय पाटील', title: 'उपाध्यक्ष', image: '/images/HeaderSlider/2.png' },
-    { name: 'अमित शर्मा', title: 'सचिव', image: '/images/HeaderSlider/3.png' },
-    { name: 'प्रकाश जोशी', title: 'कोषाध्यक्ष', image: '/images/HeaderSlider/4.png' },
-    { name: 'विजय राठोड', title: 'सदस्य', image: '/images/HeaderSlider/5.png' }
+    { name: 'श्री आचार्य देवव्रत', title: 'मा. राज्यपाल, महाराष्ट्र राज्य', image: '/images/HeaderSlider/1.png' },
+    { name: 'श्री. देवेंद्र फडणवीस', title: 'मा. मुख्यमंत्री, महाराष्ट्र राज्य', image: '/images/HeaderSlider/2.png' },
+    { name: 'श्री. एकनाथ शिंदे', title: 'मा. उपमुख्यमंत्री, महाराष्ट्र राज्य', image: '/images/HeaderSlider/3.png' },
+    { name: 'श्री. अजित पवार', title: 'मा. उपमुख्यमंत्री, महाराष्ट्र राज्य', image: '/images/HeaderSlider/4.png' },
+    { name: 'श्री.अतुल सावे', title: 'मा. मंत्री , इतर मागास बहुजन कल्याण, महाराष्ट्र राज्य', image: '/images/HeaderSlider/5.png' }
 ];
 
 const schemes = [
@@ -371,11 +371,11 @@ export default function Header() {
                         </div>
 
                         {/* Team Members Section */}
-                        <div className="flex items-center gap-2 md:gap-6 overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
+                        <div className="flex items-center  gap-1 md:gap-6 overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
                             {teamMembers.map((member, index) => (
                                 <div
                                     key={index}
-                                    className="flex flex-col items-center gap-1 md:gap-2 min-w-[70px] md:min-w-[80px] group cursor-pointer"
+                                    className="flex flex-col items-center gap-1 md:gap-1 min-w-[10%] md:min-w-[10%] group cursor-pointer"
                                 >
                                     {/* Circle Image */}
                                     <div className="relative">
@@ -383,7 +383,7 @@ export default function Header() {
                                             <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                                         </div>
                                         {/* Online indicator */}
-                                        <div className="absolute bottom-0 right-0 w-2 h-2 md:w-4 md:h-4 bg-green-500 rounded-full border-2 border-white"></div>
+                                        {/* <div className="absolute bottom-0 right-0 w-2 h-2 md:w-4 md:h-4 bg-green-500 rounded-full border-2 border-white"></div> */}
                                     </div>
 
                                     {/* Name and Title */}
@@ -391,7 +391,7 @@ export default function Header() {
                                         <p className="text-[10px] md:text-sm font-semibold text-[#ff671f] whitespace-nowrap" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                             {member.name}
                                         </p>
-                                        <p className="text-[8px] md:text-xs text-[600] text-black font-medium">
+                                        <p className="text-[6px] md:text-xs text-[600] text-black text-[10px] w-[80%] md:w-[90%] mx-auto" style={{ fontFamily: 'Poppins, sans-serif' }}>
                                             {member.title}
                                         </p>
                                     </div>
@@ -404,7 +404,7 @@ export default function Header() {
 
             {/* Main Navigation - Made static */}
             <nav 
-                className="bg-white z-40 border-b border-orange-100"
+                className="bg-white z-40 border-b border-orange-100 font-700 text-sm"
                 style={{ fontFamily: 'poppins, serif' }}
             >
                 <div className="bg-white">

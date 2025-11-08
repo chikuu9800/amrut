@@ -7,21 +7,24 @@ import MaharashtraShowcase from '../Components/SliderMaha'
 import Footer from '../Components/Footer'
 import AmrutStats from '../Components/Dynamic'
 import AmrutMissionVision from '../Components/Vison'
-// import YojanaSlider from '../Components/Slider'
+import YojanaSlider from '../Components/Slider'
+import AmritMahotsavSection from '../Components/AmritMahotsavSection'
 
 
 const Home = () => {
   return (
-    <div className='overflow-hidden' >
-      <EmbassyBanner/>
-      <AmrutStats/>
-      <SLogon/>
-      <Tabs/>
-      {/* <YojanaSlider/> */}
-      <AnimatedMap/>
-      <AmrutMissionVision/>
-      <MaharashtraShowcase/>
-      <Footer/>
+    <div >
+      <EmbassyBanner />
+      <SLogon />
+      <YojanaSlider />
+      <Tabs />
+      <AmrutMissionVision />
+      <AnimatedMap />
+      <AmritMahotsavSection/>
+      <MaharashtraShowcase />
+      <AmrutStats />
+
+      <Footer />
     </div>
   )
 }

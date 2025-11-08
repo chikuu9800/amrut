@@ -20,7 +20,7 @@ import {
   Wheat,
   HeartPulse,
 } from "lucide-react";
-import mapImg from "/images/Maharashtra_state_map__administrative_division_of_India__Vector_illustration_-removebg-preview (1).png";
+import mapImg from "/images/_-removebg-preview.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -112,7 +112,7 @@ const AnimatedMapCircle = () => {
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white to-gray-100 overflow-hidden py-20">
       {/* Title + Description */}
       <div className="text-center mb-6 px-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 mb-2 leading-tight" style={{ fontFamily: "baloo, sans-serif" }}>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold  text-orange-700 mb-2 leading-tight" style={{ fontFamily: "baloo, sans-serif" }}>
           महाराष्ट्र संशोधन, उन्नती आणि प्रशिक्षण प्रबोधनी
         </h2>
         <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed font-medium max-w-2xl mx-auto">

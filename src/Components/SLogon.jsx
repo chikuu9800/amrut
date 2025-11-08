@@ -67,9 +67,9 @@ export default function SLogon() {
     >
       {/* === Full Background Skyline Image === */}
       <div
-        className="absolute inset-0 bg-no-repeat bg-bottom bg-cover opacity-80 -z-10"
+        className="absolute inset-0 bg-no-repeat bg-bottom bg-cover opacity-100 -z-10"
         style={{
-          backgroundImage: `linear-gradient(to top, rgba(255,165,0,0.15), rgba(255,255,255,0.95) 40%), url('/images/Indian_Monuments_PNG-removebg-preview.png')`,
+          backgroundImage: `linear-gradient(to top, rgba(255,165,0,0.15), rgba(255,255,255,0.95) 90%), url('/images/Indian_Monuments_PNG-removebg-preview.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center bottom",
         }}
@@ -89,11 +89,11 @@ export default function SLogon() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true, amount: 0.4 }}
-          className="absolute -left-12 md:-left-20 top-0 -translate-y-1/2 flex-shrink-0"
+          className="absolute -left-0 md:-left-0 top-0 -translate-y-1/2 flex-shrink-0"
         >
           <div className="absolute inset-0 bg-orange-400 opacity-30 blur-2xl rounded-full w-64 h-64 -z-10 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
           <img
-            src="/images/Maharashtra_state_map__administrative_division_of_India__Vector_illustration_-removebg-preview (1).png"
+            src="/images/_-removebg-preview.png"
             alt="Maharashtra Map"
             className="w-56 md:w-72 opacity-100 drop-shadow-[0_0_25px_rgba(255,140,0,0.5)] hover:scale-105 transition-transform duration-300"
           />
@@ -105,7 +105,7 @@ export default function SLogon() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
           viewport={{ once: true, amount: 0.4 }}
-          className="flex-1 text-center md:text-left md:ml-[20%]"
+          className="flex-1 text-center md:text-left md:ml-[40%]"
           style={{ fontFamily: "baloo, sans-serif" }}
         >
           <h1 className="text-2xl md:text-3xl font-bold text-gray-800 leading-snug">
